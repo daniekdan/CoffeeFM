@@ -6,64 +6,109 @@ body {
     text-align: center;
 }
 
-span {
-    color: #FFF;
-    font-size: 36px;
-}
-
-.center {
-    display: block;
-}
-
-.main {
+main {
+    width: 500px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
+    background-color: #8e653c;
+    color: #FFF;
 }
 
-.main img {
-    height: 100%;
+main .baner {
     width: 100%;
 }
 
-.logo {
-    background-color: #252525;
+.ad {
+    padding-top: 32px;
 }
 
-.main {
-    background-color: #8e653c;
+.host {
+    padding: 8px;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
-#dj_avatar {
-    padding-top: 16px;
+.host-vol {
     display: inline-block;
-    width: 200px;
-    height: 200px;
+    width: 20px;
+    height: 150px;
+    padding: 0;
 }
 
-.dj_div span {
+.host-vol input {
+    width: 150px;
+    height: 20px;
+    margin: 0;
+    transform-origin: 75px 75px;
+    transform: rotate(-90deg);
+}
+
+.host-img {
+    display: inline;
+    position: relative;
+}
+
+.host-img:hover #awatar {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.host-img:hover #playerBtn {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#awatar {
+    /* opacity: 1; */
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+#playerBtn {
+    transition: .5s ease;
+    /* opacity: 0; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.opacity07 {
+    opacity: 0.7;
+}
+
+.opacity0 {
+    opacity: 0;
+}
+
+.opacity1 {
+    opacity: 1;
+}
+
+.host-span {
+    width: 290px;
+    display: inline-block;
+    align-self: flex-start;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.host-span span {
+    text-align: end;
     display: block;
 }
 
-.dj_div {
-    padding: 8px;
-    text-align: center;
+.host-span span:nth-child(1) {
+    font-size: 50px;
 }
 
-#dj_show {}
+.host-span span:nth-child(2),
+.host-span span:nth-child(3) {
+    font-size: 25px;
 
-#dj_time {
-    font-size: 24px;
-}
-
-.radio_player {}
-
-.footer {
-    padding-top: 16px;
-}
-
-#playPauseBtn {
-    width: 100px;
-    height: 100px;
 }
