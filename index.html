@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8">
@@ -14,36 +14,34 @@
 </head>
 
 <body>
-    <div class="main">
-        <div class="logo">
-            <img src="img/baner.png" alt="">
-        </div>
-        <div class="dj_div">
-            <span id="dj_title">Teraz gra dla was:</span>
-            <img id="dj_avatar" src="img/24324023_447046655693517_1028102113_o_cropped.jpg" alt="awatar" srcset="">
-            <span id="dj_name">Reksio</span>
-            <span id="dj_show">Nocne przygody</span>
-            <span id="dj_time">15:00 - 16:00</span>
-        </div>
+    <main>
 
-        <div class="odtwarzacz">
-            <input type="range">
-            <img src="img/icons8-play-100.png" alt="play" id="playPauseBtn">
+        <img src="img/baner.png" class="baner">
+        <!-- Host & player-->
+        <div class="host">
+            <div class="host-vol">
+                <input type="range" min="0" max="1" value="0.3" step="any" oninput="setVol(this.value)" onchange="setVol(this.value)">
+            </div>
+            <div class="host-img" onclick="playRadio();">
+                <img src="https://i.imgur.com/PWTucy6.png" id="awatar" width="150px" height="150px" class="opacity07">
+                <div class="playerButton">
+                    <img id="playerBtn" src="img/icons8-play-100.png" alt="Play" class="opacity1">
+                </div>
+            </div>
+            <div class="host-span">
+                <span id="host">Ładowanie...</span>
+                <span id="opis"></span>
+                <span id="czas"></span>
+            </div>
         </div>
-
-        <div class="div_radio_player">
-            <script class="radio_player" src="//myradiostream.com/embed/Daniek"></script>
+        <div>
+            <br><br> Jeśli powyższy odtwarzacz nie działa, skorzystaj z tego na dole<br>(brak regulacji glośności)<br>
+            <script src="//myradiostream.com/embed/Daniek"></script>
         </div>
-        <div class="footer">
-            <a target="_blank" href="https://icons8.com/icons/set/play">Play icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-        </div>
-    </div>
-
+        <a class="ad" target="_blank" href="https://icons8.com/icons/set/play">Play icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        <audio id="radio" src="https://radio.truckers.fm/"></audio>
+    </main>
 </body>
-<audio controls>
-    <source src="http://87.98.216.129:7208/" type="audio/mpeg">
-  Your browser does not support the audio element.
-  </audio>
 <script src="script.js"></script>
 
 </html>
