@@ -1,0 +1,69 @@
+body {
+    background-color: #252525;
+    font-family: 'Red Hat Display', sans-serif;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+span {
+    color: #FFF;
+    font-size: 36px;
+}
+
+.center {
+    display: block;
+}
+
+.main {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+.main img {
+    height: 100%;
+    width: 100%;
+}
+
+.logo {
+    background-color: #252525;
+}
+
+.main {
+    background-color: #8e653c;
+}
+
+#dj_avatar {
+    padding-top: 16px;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+}
+
+.dj_div span {
+    display: block;
+}
+
+.dj_div {
+    padding: 8px;
+    text-align: center;
+}
+
+#dj_show {}
+
+#dj_time {
+    font-size: 24px;
+}
+
+.radio_player {}
+
+.footer {
+    padding-top: 16px;
+}
+
+#playPauseBtn {
+    width: 100px;
+    height: 100px;
+}

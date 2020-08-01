@@ -1,33 +1,49 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Już wkrótce...</title>
     <link href="https://fonts.googleapis.com/css?family=Red+Hat+Display&amp;display=swap" rel="stylesheet">
-    <style>
-        body
-        {
-            background-color: #252525;
-            font-family: 'Red Hat Display', sans-serif;
-        }
-        img, span
-        {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-text-align: center;
-        }
-        span
-        {
-            color: #FFF;
-            margin-bottom: 24px;
-            font-size: 72px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+    <script src="db.js"></script>
+    <title>CoffeeFM</title>
 </head>
+
 <body>
-    <span>Już wkrótce...</span>
-    <img src="https://i.imgur.com/mhnMwGt.png" alt="cfm_logo">
-    muuu
+    <div class="main">
+        <div class="logo">
+            <img src="img/baner.png" alt="">
+        </div>
+        <div class="dj_div">
+            <span id="dj_title">Teraz gra dla was:</span>
+            <img id="dj_avatar" src="img/24324023_447046655693517_1028102113_o_cropped.jpg" alt="awatar" srcset="">
+            <span id="dj_name">Reksio</span>
+            <span id="dj_show">Nocne przygody</span>
+            <span id="dj_time">15:00 - 16:00</span>
+        </div>
+
+        <div class="odtwarzacz">
+            <input type="range">
+            <img src="img/icons8-play-100.png" alt="play" id="playPauseBtn">
+        </div>
+
+        <div class="div_radio_player">
+            <script class="radio_player" src="//myradiostream.com/embed/Daniek"></script>
+        </div>
+        <div class="footer">
+            <a target="_blank" href="https://icons8.com/icons/set/play">Play icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        </div>
+    </div>
+
 </body>
+<audio controls>
+    <source src="http://87.98.216.129:7208/" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+<script src="script.js"></script>
+
 </html>
