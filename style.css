@@ -1,5 +1,6 @@
 body {
     background-color: #252525;
+    color: #FFF;
     font-family: 'Red Hat Display', sans-serif;
     display: flex;
     justify-content: center;
@@ -110,5 +111,38 @@ main .baner {
 .host-span span:nth-child(2),
 .host-span span:nth-child(3) {
     font-size: 25px;
+}
 
+#przyciski button {
+    padding: 12px 20px;
+    margin-bottom: 8px;
+    border: 0;
+    cursor: pointer;
+}
+
+.inactive {
+    background-color: #5c4835;
+    color: #FFF;
+}
+
+.active {
+    background-color: #FFF;
+    color: #252525;
+}
+
+#forma form input {
+    display: block;
+    width: 80%;
+    margin: auto;
+    padding: 12px 20px;
+    margin-top: 4px;
+}
+
+#forma form input[type=submit] {
+    margin-top: 4px;
+    width: 30%;
+    border: 0;
+    cursor: pointer;
+    background-color: #5c4835;
+    color: #FFF;
 }

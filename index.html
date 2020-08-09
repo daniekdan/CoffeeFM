@@ -14,7 +14,7 @@
     <title>CoffeeFM</title>
 </head>
 
-<body>
+<body onload="refreshWidth()">
 
     <main>
 
@@ -36,12 +36,17 @@
                 <span id="czas"></span>
             </div>
         </div>
+        <!-- Buttons -->
+        <div class="buttons">
+            <div id="przyciski"></div>
+            <div id="forma"></div>
+        </div>
         <div>
             <br><br> Jeśli powyższy odtwarzacz nie działa, skorzystaj z tego na dole<br>(brak regulacji glośności)<br>
             <script src="//myradiostream.com/embed/Daniek"></script>
         </div>
         <a class="ad" target="_blank" href="https://icons8.com/icons/set/play">Play icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
-        <audio id="radio" src="https://radio.truckers.fm/"></audio>
+        <audio id="radio" src="http://s3.myradiostream.com:7208/"></audio>
     </main>
 </body>
 

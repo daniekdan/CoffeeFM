@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Red+Hat+Display&amp;display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="djka.css">
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+    <script src="/db.js"></script>
+    <title>CoffeeFM - DJ Panel</title>
+</head>
+
+<body>
+    <button class="tablink" onclick="openPage('Home', this, '#8e653c')" id="defaultOpen">Skrzynka odbiorcza</button>
+    <button class="tablink" onclick="openPage('News', this, '#8e653c')">Ustawienia</button>
+    <button class="tablink" onclick="window.open('http://coffeefm.tk/')">Strona radia</button>
+    <button class="tablink" onclick="window.open('http://s3.myradiostream.com:7208/')">Statystyki</button>
+
+    <div id="Home" class="tabcontent">
+        <div class="categories">
+            <button id="cat_piosenka" onclick="wyborKategorii('piosenka')">Prośba o piosenkę</button>
+            <button id="cat_pozdrowienie" onclick="wyborKategorii('pozdrowienie')">Pozdrowienie</button>
+            <button id="cat_konkurs" onclick="wyborKategorii('konkurs')">Konkurs</button>
+        </div>
+        <div>
+            <ul id="piolista"></ul>
+            <ul id="pozlista"></ul>
+            <ul id="konlista"></ul>
+        </div>
+    </div>
+
+    <div id="News" class="tabcontent">
+        <span>Host</span>
+        <select name="host" id="host" onchange="zmianaPrezentera()">
+
+        </select>
+    </div>
+    <script src="djka.js"></script>
+</body>
+
+</html>
