@@ -64,11 +64,11 @@ db.collection("ustawienia").doc("buttons")
 
 function playRadio() {
     if (radio.paused) {
-        radio.play();
-        radio.src = "http://s3.myradiostream.com:7208/"
+        radio.src = "http://217.97.101.214:8000/stream.ogg"
         playerBtn.src = "img/icons8-pause-100.png";
         awatar.className = "opacity1";
         playerBtn.className = "opacity0";
+        radio.play();
 
     } else {
         radio.pause();
