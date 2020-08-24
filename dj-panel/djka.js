@@ -315,3 +315,10 @@ function zmianaPrezentera() {
     });
 
 }
+
+function zamknijKomunikat() {
+    const informacja = document.getElementById('informacja');
+    informacja.className = 'informacja hidden';
+    const informacja2 = document.getElementById('informacja2');
+    informacja2.className = 'informacja hidden';
+}

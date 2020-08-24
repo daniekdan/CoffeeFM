@@ -17,12 +17,18 @@
 </head>
 
 <body>
-    <button class="tablink" onclick="openPage('Home', this, '#8e653c')" id="defaultOpen">Skrzynka odbiorcza</button>
-    <button class="tablink" onclick="openPage('News', this, '#8e653c')">Ustawienia</button>
-    <button class="tablink" onclick="window.open('http://coffeefm.tk/')">Strona radia</button>
-    <button class="tablink" onclick="window.open('http://217.97.86.104:8000/')">Statystyki</button>
+    <div>
+        <button class="tablink" onclick="openPage('Home', this, '#8e653c')" id="defaultOpen">Skrzynka odbiorcza</button>
+        <button class="tablink" onclick="openPage('News', this, '#8e653c')">Ustawienia</button>
+        <button class="tablink" onclick="window.open('http://coffeefm.tk/')">Strona radia</button>
+        <button class="tablink" onclick="window.open('http://mcs.project2501.eu:8000')">Statystyki</button>
+    </div>
 
     <div id="Home" class="tabcontent">
+        <div class="informacja" id="informacja">Serwer Icecast został przeniesiony dla wygody wszystkich. Od teraz IP będzie niezmienne dzięki czemu nie będzie problemu z adresem. W swoim programie w ustawieniach jako adres hosta ustaw <span>http://mcs.project2501.eu:8000</span>, a po hasło
+            zgłoś się do Daniek.
+            <div style="text-align: end; font-weight: bold; cursor: pointer;" onclick="zamknijKomunikat()">x</div>
+        </div>
         <div class="categories">
             <button id="cat_piosenka" onclick="wyborKategorii('piosenka')">Prośba o piosenkę</button>
             <button id="cat_pozdrowienie" onclick="wyborKategorii('pozdrowienie')">Pozdrowienie</button>
@@ -36,6 +42,10 @@
     </div>
 
     <div id="News" class="tabcontent">
+        <div class="informacja" id="informacja2">Serwer Icecast został przeniesiony dla wygody wszystkich. Od teraz IP będzie niezmienne dzięki czemu nie będzie problemu z adresem. W swoim programie w ustawieniach jako adres hosta ustaw <span>http://mcs.project2501.eu:8000</span>, a po hasło
+            zgłoś się do Daniek.
+            <div style="text-align: end; font-weight: bold; cursor: pointer;" onclick="zamknijKomunikat()">x</div>
+        </div>
         <span>Host</span>
         <select name="host" id="host" onchange="zmianaPrezentera()">
 

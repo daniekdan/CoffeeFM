@@ -66,7 +66,7 @@ db.collection("ustawienia").doc("buttons")
 
 function playRadio() {
     if (radio.paused) {
-        radio.src = "http://217.97.86.104:8000/stream.ogg"
+        radio.src = "http://mcs.project2501.eu:8000/stream.ogg"
         playerBtn.src = "img/icons8-pause-100.png";
         awatar.className = "opacity1";
         playerBtn.className = "opacity0";
