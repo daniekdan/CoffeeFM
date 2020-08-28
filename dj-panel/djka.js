@@ -313,7 +313,8 @@ function zmianaPrezentera() {
     db.collection("prezenterzy").doc("actual").set({
         prezenter: hostySelect.value
     });
-
+    const zapisanoAH = document.getElementById('zapisanoAH');
+    zapisanoAH.style.display = 'inline-block';
 }
 
 function zamknijKomunikat() {
@@ -321,4 +322,93 @@ function zamknijKomunikat() {
     informacja.className = 'informacja hidden';
     const informacja2 = document.getElementById('informacja2');
     informacja2.className = 'informacja hidden';
+}
+
+const containerPrezenterzy = document.getElementById('containerPrezenterzy');
+const divPrezenter = document.createElement('div');
+const spanTytul = document.createElement('span');
+const formDane = document.createElement('form');
+const labelOpis = document.createElement('label');
+const labelCzas = document.createElement('label');
+const inputOpis = document.createElement('input');
+const inputCzas = document.createElement('input');
+const inputZapisz = document.createElement('input');
+
+db.collection("prezenterzy")
+    .get()
+    .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+            if (doc.id != 'offline' && doc.id != 'actual') {
+                const divPrezenter = document.createElement('div');
+                const spanTytul = document.createElement('span');
+                const formDane = document.createElement('form');
+                const labelOpis = document.createElement('label');
+                const labelCzas = document.createElement('label');
+                const inputOpis = document.createElement('input');
+                const inputCzas = document.createElement('input');
+                const inputZapisz = document.createElement('input');
+
+                divPrezenter.className = 'prezenter';
+                spanTytul.textContent = doc.data().titl;
+                formDane.setAttribute('id', doc.id);
+                formDane.setAttribute('onsubmit', 'this.zapisz.value = "Zapisywanie..."; this.opis.disabled = true; this.czas.disabled = true; this.zapisz.disabled = true; zapiszZmiany(this.id); return false;');
+                labelCzas.for = 'czas';
+                labelOpis.for = 'opis';
+                labelOpis.textContent = 'Tytuł audycji';
+                labelCzas.textContent = 'Godziny trwania';
+                inputCzas.setAttribute('type', 'text');
+                inputOpis.setAttribute('type', 'text');
+                inputZapisz.setAttribute('type', 'submit');
+                inputZapisz.value = "Zapisz";
+                inputCzas.id = 'czas';
+                inputOpis.id = 'opis';
+                inputZapisz.id = 'zapisz';
+                inputCzas.name = 'czas';
+                inputOpis.name = 'opis';
+                inputZapisz.name = 'zapisz';
+
+                inputOpis.value = doc.data().desc;
+                inputCzas.value = doc.data().czas;
+
+                formDane.appendChild(labelOpis);
+                formDane.appendChild(inputOpis);
+                formDane.appendChild(labelCzas);
+                formDane.appendChild(inputCzas);
+                formDane.appendChild(inputZapisz);
+
+                divPrezenter.appendChild(spanTytul);
+                divPrezenter.appendChild(formDane);
+
+                containerPrezenterzy.appendChild(divPrezenter);
+            }
+        });
+    });
+
+function zapiszZmiany(dokument) {
+    var sourceForm = document.getElementById(dokument);
+    var sfDocRef = db.collection("prezenterzy").doc(dokument);
+
+    return db.runTransaction(function(transaction) {
+        // This code may get re-run multiple times if there are conflicts.
+        return transaction.get(sfDocRef).then(function(sfDoc) {
+            if (!sfDoc.exists) {
+                throw "Document does not exist!";
+            }
+
+            // Add one person to the city population.
+            // Note: this could be done without a transaction
+            //       by updating the population using FieldValue.increment()
+            transaction.update(sfDocRef, { desc: sourceForm.opis.value });
+            transaction.update(sfDocRef, { czas: sourceForm.czas.value });
+        });
+    }).then(function() {
+        console.log("Transaction successfully committed!");
+        sourceForm.zapisz.value = 'Zapisano!';
+        sourceForm.zapisz.disabled = false;
+        sourceForm.czas.disabled = false;
+        sourceForm.opis.disabled = false;
+    }).catch(function(error) {
+        console.log("Transaction failed: ", error);
+        sourceForm.zapisz.value = 'Wystąpił błąd!';
+    });
 }
