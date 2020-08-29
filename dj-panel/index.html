@@ -50,7 +50,23 @@
         <select style="width: 220px; padding: 8px;" name="host" id="host" onchange="zmianaPrezentera()">
 
         </select>
-        <span id="zapisanoAH" style="margin-left: 8px; display: none;">Zapisano!</span>
+        <span id="zapisanoAH" style="margin-left: 8px; display: none;">Zapisano!</span><br>
+        <div class="prezenter block">
+            <div class="switchDiv">
+                <input type="checkbox" id="checkPiosenka" onchange="buttonsUpdate()">
+                </label> <span style="font-size: 20px;">Prośba o piosenkę</span>
+            </div>
+            <div class="switchDiv">
+                <input type="checkbox" id="checkPozdrowienie" onchange="buttonsUpdate()">
+                <span style="font-size: 20px;">Pozdrowienie</span>
+                </label>
+            </div>
+            <div class="switchDiv">
+                <input type="checkbox" id="checkKonkurs" onchange="buttonsUpdate()">
+                </label> <span style="font-size: 20px;">Konkurs</span>
+            </div>
+            <span style="font-size: 20px; display: none;" id="zapisanoCH">Zapisano!</span>
+        </div>
         <div style="margin-top: 16px;" id="containerPrezenterzy">
         </div>
     </div>
