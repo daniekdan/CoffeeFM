@@ -1,3 +1,4 @@
+
 const nickname = document.getElementById('host');
 const awatar = document.getElementById('awatar');
 const show = document.getElementById('opis');
