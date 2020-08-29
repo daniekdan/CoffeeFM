@@ -14,6 +14,7 @@ var pozdrowienie = 0;
 var kategoria = "piosenka"
 var audio = new Audio('notification_sound.mp3');
 
+const submitButton = document.querySelector("#submitButton");
 const hostySelect = document.getElementById("host");
 const containerPrezenterzy = document.getElementById('containerPrezenterzy');
 const divPrezenter = document.createElement('div');
@@ -332,6 +333,9 @@ function zmianaPrezentera() {
     const zapisanoAH = document.getElementById('zapisanoAH');
     zapisanoAH.style.display = 'inline-block';
 }
+
+// zapisywanie zmian
+submitButton.addEventListener("click", zmianaPrezentera)
 
 // Wyświetlanie ustawień
 db.collection("prezenterzy").get()
