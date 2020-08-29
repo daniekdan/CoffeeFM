@@ -1,4 +1,5 @@
 
+//stałe
 document.getElementById("defaultOpen").click();
 
 const btn_piosnka = document.getElementById('cat_piosenka');
