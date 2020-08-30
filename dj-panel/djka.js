@@ -7,9 +7,6 @@ const btn_konkurs = document.getElementById('cat_konkurs');
 const piosenkaList = document.querySelector('#piolista');
 const pozdroList = document.querySelector('#pozlista');
 const konkursList = document.querySelector('#konlista');
-const checkPiosenka = document.getElementById('checkPiosenka');
-const checkPozdrowienie = document.getElementById('checkPozdrowienie');
-const checkKonkurs = document.getElementById('checkKonkurs');
 var piosenka = 0;
 var konkurs = 0;
 var pozdrowienie = 0;
@@ -27,6 +24,10 @@ const inputOpis = document.createElement('input');
 const inputCzas = document.createElement('input');
 const inputZapisz = document.createElement('input');
 var prezenter = "offline";
+
+const checkPiosenka = document.getElementById('checkPiosenka');
+const checkPozdrowienie = document.getElementById('checkPozdrowienie');
+const checkKonkurs = document.getElementById('checkKonkurs');
 
 function openPage(pageName, elmnt, color) {
     // Hide all elements with class="tabcontent" by default */
@@ -415,6 +416,8 @@ function zapiszZmiany(dokument) {
     });
 }
 
+// Checkbox wiadomości
+// Ładowanie danych
 db.collection("ustawienia").doc("buttons")
     .onSnapshot(function(doc) {
         checkPiosenka.checked = doc.data().piosenka;
@@ -422,7 +425,7 @@ db.collection("ustawienia").doc("buttons")
         checkKonkurs.checked = doc.data().konkurs;
 });
 
-//
+// Wysyłanie danych
 function buttonsUpdate() {
     db.collection("ustawienia").doc("buttons").set({
             konkurs: checkKonkurs.checked,
