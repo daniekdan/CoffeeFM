@@ -27,6 +27,10 @@ const inputCzas = document.createElement('input');
 const inputZapisz = document.createElement('input');
 var prezenter = "offline";
 
+const checkPiosenka = document.getElementById('checkPiosenka');
+const checkPozdrowienie = document.getElementById('checkPozdrowienie');
+const checkKonkurs = document.getElementById('checkKonkurs');
+
 function openPage(pageName, elmnt, color) {
     // Hide all elements with class="tabcontent" by default */
     var i, tabcontent, tablinks;
@@ -416,3 +420,33 @@ function zapiszZmiany(dokument) {
         sourceForm.zapisz.value = 'Wystąpił błąd!';
     });
 }
+
+// Checkbox wiadomości
+// Ładowanie danych
+db.collection("ustawienia").doc("buttons")
+    .onSnapshot(function(doc) {
+        checkPiosenka.checked = doc.data().piosenka;
+        checkPozdrowienie.checked = doc.data().pozdrowienie;
+        checkKonkurs.checked = doc.data().konkurs;
+});
+
+// Wysyłanie danych
+function buttonsUpdate() {
+    db.collection("ustawienia").doc("buttons").set({
+            konkurs: checkKonkurs.checked,
+            piosenka: checkPiosenka.checked,
+            pozdrowienie: checkPozdrowienie.checked
+        })
+        .then(function() {
+            console.log("Document successfully written!");
+            const zapisanoCH = document.getElementById('zapisanoCH');
+            zapisanoCH.style.display = 'inline-block';
+        })
+        .catch(function(error) {
+            console.error("Error writing document: ", error);
+            const zapisanoCH = document.getElementById('zapisanoCH');
+            zapisanoCH.style.display = 'inline-block';
+            zapisanoCH.textContent = 'Błąd!';
+        });
+}
+    
