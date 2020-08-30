@@ -7,6 +7,9 @@ const btn_konkurs = document.getElementById('cat_konkurs');
 const piosenkaList = document.querySelector('#piolista');
 const pozdroList = document.querySelector('#pozlista');
 const konkursList = document.querySelector('#konlista');
+const checkPiosenka = document.getElementById('checkPiosenka');
+const checkPozdrowienie = document.getElementById('checkPozdrowienie');
+const checkKonkurs = document.getElementById('checkKonkurs');
 var piosenka = 0;
 var konkurs = 0;
 var pozdrowienie = 0;
@@ -411,3 +414,31 @@ function zapiszZmiany(dokument) {
         sourceForm.zapisz.value = 'Wystąpił błąd!';
     });
 }
+
+db.collection("ustawienia").doc("buttons")
+    .onSnapshot(function(doc) {
+        checkPiosenka.checked = doc.data().piosenka;
+        checkPozdrowienie.checked = doc.data().pozdrowienie;
+        checkKonkurs.checked = doc.data().konkurs;
+});
+
+//
+function buttonsUpdate() {
+    db.collection("ustawienia").doc("buttons").set({
+            konkurs: checkKonkurs.checked,
+            piosenka: checkPiosenka.checked,
+            pozdrowienie: checkPozdrowienie.checked
+        })
+        .then(function() {
+            console.log("Document successfully written!");
+            const zapisanoCH = document.getElementById('zapisanoCH');
+            zapisanoCH.style.display = 'inline-block';
+        })
+        .catch(function(error) {
+            console.error("Error writing document: ", error);
+            const zapisanoCH = document.getElementById('zapisanoCH');
+            zapisanoCH.style.display = 'inline-block';
+            zapisanoCH.textContent = 'Błąd!';
+        });
+}
+    
