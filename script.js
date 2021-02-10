@@ -66,7 +66,7 @@ db.collection("ustawienia").doc("buttons")
 
 function playRadio() {
     if (radio.paused) {
-        radio.src = "http://mcs.project2501.eu:8000/stream.ogg"
+        radio.src = "http://s3.myradiostream.com:7208/listen.pls"
         playerBtn.src = "img/icons8-pause-100.png";
         awatar.className = "opacity1";
         playerBtn.className = "opacity0";
@@ -74,7 +74,7 @@ function playRadio() {
 
     } else {
         radio.pause();
-        radio.src = "";
+        radio.src = "http://s3.myradiostream.com:7208/listen.pls";
         playerBtn.src = "img/icons8-play-100.png";
         awatar.className = "opacity07";
         playerBtn.className = "opacity1";
