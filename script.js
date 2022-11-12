@@ -11,6 +11,8 @@ const przyciskKonkurs = document.createElement('button');
 const forma = document.getElementById('forma');
 var kategoria;
 
+window.location = 'http://coffeespedition.pl/radio/'
+
 db.collection("prezenterzy").doc("actual")
     .onSnapshot(function(doc) {
         console.log("Prowadzący: ", doc.data().prezenter);
